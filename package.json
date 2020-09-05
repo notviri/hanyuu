@@ -27,5 +27,7 @@
         "arrowParens": "always",
         "endOfLine": "lf"
     },
-    "hanyuuConfigFileName": "config.json"
+    "hanyuu": {
+        "config": "config.json"
+    }
 }
