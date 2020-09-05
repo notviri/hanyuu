@@ -14,5 +14,17 @@
         "erlpack": "abalabahaha/erlpack",
         "sodium-native": "^3.2.0",
         "zlib-sync": "^0.1.7"
+    },
+    "prettier": {
+        "printWidth": 80,
+        "tabWidth": 4,
+        "useTabs": false,
+        "semi": true,
+        "singleQuote": false,
+        "quoteProps": "consistent",
+        "trailingComma": "all",
+        "bracketSpacing": true,
+        "arrowParens": "always",
+        "endOfLine": "lf"
     }
 }
