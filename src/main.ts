@@ -1,3 +1,4 @@
+import * as Eris from "eris";
 import * as fs from "fs";
 import * as path from "path";
 import * as process from "process";
@@ -29,3 +30,32 @@ const config = (() => {
         }
     }
 })();
+
+const hanyuu = new Eris.Client(config.token);
+
+hanyuu.on("messageCreate", (message) => {
+    // Ignore messages from bots + self.
+    if (message.author.bot || message.author.id === hanyuu.user.id) return;
+
+    try {
+        if (message.content.startsWith(".")) {
+            let args_start = message.content.indexOf(" ");
+            let command = message.content.substring(1, args_start !== -1 ? args_start : undefined);
+
+            switch (command) {
+                case "ping":
+                    message.channel.createMessage("Timing...")
+                        .then((ping) => ping.edit(`⏱️ Latency: \`${ping.timestamp - message.timestamp}ms\``));
+                    break;
+                default:
+                    break;
+            }
+        }
+    } catch (error) {
+        console.error(error);
+    }
+});
+
+hanyuu.connect()
+    .then(() => console.log("Connected!"))
+    .catch((err) => console.error(`Failed to connect: ${err}`));
