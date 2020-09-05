@@ -3,10 +3,10 @@ import * as fs from "fs";
 import * as path from "path";
 import * as process from "process";
 
-import { hanyuuConfigFileName as CONFIG_FILE } from "../package.json";
+import { hanyuu as packageInfo } from "../package.json";
 
 const config = (() => {
-    let configPath = path.resolve(__dirname, "../", CONFIG_FILE);
+    let configPath = path.resolve(__dirname, "../", packageInfo.config);
     try {
         let config = JSON.parse(fs.readFileSync(configPath, "utf8"));
         // maybe verify properties here
@@ -23,7 +23,7 @@ const config = (() => {
                 let data = { token: "put token here" };
                 let blank = JSON.stringify(data, null, 4);
                 fs.writeFileSync(configPath, blank, "utf8");
-                console.log(`Created ${CONFIG_FILE}, go fill it in!`);
+                console.log(`Created ${packageInfo.config}, go fill it in!`);
                 process.exit(0);
             } else {
                 console.error(`Failed to load config file:\n${ex}`);
