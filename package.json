@@ -1,0 +1,9 @@
+{
+    "name": "hanyuu",
+    "version": "1.0.0",
+    "description": "Cute & minimal utility bot for Discord.",
+    "repository": "https://github.com/notviri/hanyuu.git",
+    "author": "viri <hi@viri.moe>",
+    "license": "UNLICENSED",
+    "private": true
+}
