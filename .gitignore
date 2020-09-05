@@ -1,0 +1,17 @@
+# dependencies
+node_modules
+bower_components
+
+# editors
+.idea
+.vscode
+*.iml
+
+# built ts files
+/build
+
+# yarn lockfile
+yarn.lock
+
+# bot config
+/config.json
