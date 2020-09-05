@@ -3,7 +3,7 @@ import * as fs from "fs";
 import * as path from "path";
 import * as process from "process";
 
-const CONFIG_FILE = "config.json";
+import { hanyuuConfigFileName as CONFIG_FILE } from '../package.json';
 
 const config = (() => {
     let configPath = path.resolve(__dirname, "../", CONFIG_FILE);
