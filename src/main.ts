@@ -33,11 +33,13 @@ const config = (() => {
     }
 })();
 
-const hanyuu = new Eris.Client(config.token);
+// ----------------------------------------------------------------------------
 
-hanyuu.on("messageCreate", (message) => {
+const Hanyuu = new Eris.Client(config.token);
+
+Hanyuu.on("messageCreate", (message) => {
     // Ignore messages from bots + self.
-    if (message.author.bot || message.author.id === hanyuu.user.id) return;
+    if (message.author.bot || message.author.id === Hanyuu.user.id) return;
 
     try {
         if (message.content.startsWith(".")) {
@@ -68,7 +70,6 @@ hanyuu.on("messageCreate", (message) => {
     }
 });
 
-hanyuu
-    .connect()
+Hanyuu.connect()
     .then(() => console.log("Connected!"))
     .catch((err) => console.error(`Failed to connect: ${err}`));
