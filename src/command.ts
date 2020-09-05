@@ -16,9 +16,9 @@ export class Args {
  * Read the constructor for more information on its properties.
  */
 export class ArgsFormat {
-    min: number;
-    max: number;
-    meta: boolean;
+    private min: number;
+    private max: number;
+    private meta: boolean;
 
     /**
      *
