@@ -11,6 +11,7 @@
         "@types/node": "^14.6.4",
         "bufferutil": "^4.0.1",
         "erlpack": "abalabahaha/erlpack",
+        "sodium-native": "^3.2.0",
         "zlib-sync": "^0.1.7"
     }
 }
