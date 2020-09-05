@@ -63,7 +63,8 @@ export interface Command {
 
     /**
      * Executes the command implementation.
-     * @param name The command name as invoked. If a command alias was used, the alias is passed.
+     * @param name The command name as invoked.
+     *  This means that if a command alias was used, the alias is passed instead.
      * @param args The arguments passed to the command, if any.
      * @param client The bot instance that received this command.
      * @param message The command message handle.
@@ -74,4 +75,26 @@ export interface Command {
         client: Eris.Client,
         message: Eris.Message<Eris.TextableChannel>,
     ): void;
+
+    /**
+     * Returns usage examples with pairs of command to explanation,
+     * or an empty array (obviously) if there's nothing to be explained.
+     *
+     * In the example commands (first tuple member), the command
+     * should be substituted with `%command%`.
+     */
+    examples(): [[string, string]];
+
+    /**
+     * Returns a help message string.
+     */
+    help(): string;
+
+    /**
+     * Returns a full usage string, without the command prefix and with arguments.
+     * The command name itself will be substituted with `%command%`.
+     *
+     * Example: `%command% <member> [hasThing]`
+     */
+    usage(): string;
 }
