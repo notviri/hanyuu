@@ -39,7 +39,7 @@ export class ArgsFormat {
     }
 
     /**
-     * The bounds specified in the constructor.
+     * The minimum & maximum bounds specified in the constructor.
      */
     get bounds(): [number, number] {
         return [this.min, this.max];
