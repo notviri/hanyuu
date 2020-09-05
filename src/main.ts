@@ -3,7 +3,7 @@ import * as fs from "fs";
 import * as path from "path";
 import * as process from "process";
 
-import { hanyuuConfigFileName as CONFIG_FILE } from '../package.json';
+import { hanyuuConfigFileName as CONFIG_FILE } from "../package.json";
 
 const config = (() => {
     let configPath = path.resolve(__dirname, "../", CONFIG_FILE);
@@ -19,9 +19,11 @@ const config = (() => {
         } else {
             // No entry (file not found)
             if (ex.code === "ENOENT") {
-                let blank = JSON.stringify({ token: "put token here" }, null, 4);
+                console.log("Config file doesn't exist! Creating one...");
+                let data = { token: "put token here" };
+                let blank = JSON.stringify(data, null, 4);
                 fs.writeFileSync(configPath, blank, "utf8");
-                console.log(`Config file doesn't exist, created at ${CONFIG_FILE}! Fill it in!`);
+                console.log(`Created ${CONFIG_FILE}, go fill it in!`);
                 process.exit(0);
             } else {
                 console.error(`Failed to load config file:\n${ex}`);
@@ -40,14 +42,21 @@ hanyuu.on("messageCreate", (message) => {
     try {
         if (message.content.startsWith(".")) {
             let args_start = message.content.indexOf(" ");
-            let command = message.content.substring(1, args_start !== -1 ? args_start : undefined);
+            let command = message.content.substring(
+                1,
+                args_start !== -1 ? args_start : undefined,
+            );
 
             switch (command) {
                 case "ping":
                     message.channel
                         .createMessage("Timing...")
                         .then((ping) =>
-                            ping.edit(`⏱️ Latency: \`${ping.timestamp - message.timestamp}ms\``),
+                            ping.edit(
+                                `⏱️ Latency: \`${
+                                    ping.timestamp - message.timestamp
+                                }ms\``,
+                            ),
                         );
                     break;
                 default:
