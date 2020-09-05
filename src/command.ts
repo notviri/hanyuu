@@ -7,9 +7,7 @@ import * as Eris from "eris";
  */
 export class Args {
     // @ts-ignore
-    constructor(rawArgs: string, settings: ArgsFormat) {
-
-    }
+    constructor(rawArgs: string, settings: ArgsFormat) {}
 }
 
 /**
@@ -23,13 +21,13 @@ export class ArgsFormat {
     meta: boolean;
 
     /**
-     * 
+     *
      * @param min The minimum amount of input arguments.
      * @param max The maximum amount of input arguments.
      * @param parseMeta Whether to parse meta-arguments or not.
-     * 
+     *
      * The minimum and maximum values should be handled as such:
-     * - If the maximum is bigger than the minimum, the amount is variable in that range.
+     * - If the max > min, the amount is variable in that range, obviously.
      * - If they're the same number, exactly that many arguments are wanted.
      * - If the maximum is `-1`, the upper bound is unknown.
      * - If both are `-1`, arguments should be passed unparsed.
@@ -58,7 +56,7 @@ export class ArgsFormat {
 export interface Command {
     /**
      * Returns the minimum and maximum amount of arguments wanted.
-     * 
+     *
      * For more info, read [[ArgsWanted]].
      */
     argsFormat(): ArgsFormat;
@@ -70,5 +68,10 @@ export interface Command {
      * @param client The bot instance that received this command.
      * @param message The command message handle.
      */
-    execute(name: string, args: Args, client: Eris.Client, message: Eris.Message<Eris.TextableChannel>): void;
+    execute(
+        name: string,
+        args: Args,
+        client: Eris.Client,
+        message: Eris.Message<Eris.TextableChannel>,
+    ): void;
 }
