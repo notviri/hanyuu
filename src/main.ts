@@ -44,8 +44,11 @@ hanyuu.on("messageCreate", (message) => {
 
             switch (command) {
                 case "ping":
-                    message.channel.createMessage("Timing...")
-                        .then((ping) => ping.edit(`⏱️ Latency: \`${ping.timestamp - message.timestamp}ms\``));
+                    message.channel
+                        .createMessage("Timing...")
+                        .then((ping) =>
+                            ping.edit(`⏱️ Latency: \`${ping.timestamp - message.timestamp}ms\``),
+                        );
                     break;
                 default:
                     break;
@@ -56,6 +59,7 @@ hanyuu.on("messageCreate", (message) => {
     }
 });
 
-hanyuu.connect()
+hanyuu
+    .connect()
     .then(() => console.log("Connected!"))
     .catch((err) => console.error(`Failed to connect: ${err}`));
