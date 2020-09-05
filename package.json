@@ -26,5 +26,6 @@
         "bracketSpacing": true,
         "arrowParens": "always",
         "endOfLine": "lf"
-    }
+    },
+    "hanyuuConfigFileName": "config.json"
 }
