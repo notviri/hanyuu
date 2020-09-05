@@ -1,4 +1,4 @@
-import * as Eris from "eris";
+import { Client, Message, TextableChannel } from "eris";
 
 // TODO: Document what a "meta-argument" is!
 
@@ -72,8 +72,8 @@ export interface Command {
     execute(
         name: string,
         args: Args,
-        client: Eris.Client,
-        message: Eris.Message<Eris.TextableChannel>,
+        client: Client,
+        message: Message<TextableChannel>,
     ): void;
 
     /**
