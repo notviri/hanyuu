@@ -39,16 +39,16 @@ export class ArgsFormat {
     }
 
     /**
-     * Returns the bounds specified in the constructor.
+     * The bounds specified in the constructor.
      */
-    bounds(): [number, number] {
+    get bounds(): [number, number] {
         return [this.min, this.max];
     }
 
     /**
-     * Returns whether meta-arguments should be parsed or not.
+     * Whether meta-arguments should be parsed or not.
      */
-    wantMeta(): boolean {
+    get wantMeta(): boolean {
         return this.meta;
     }
 }
