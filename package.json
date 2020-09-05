@@ -8,6 +8,7 @@
     "private": true,
     "dependencies": {
         "@types/node": "^14.6.4",
+        "bufferutil": "^4.0.1",
         "erlpack": "abalabahaha/erlpack"
     }
 }
